@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафе "Быстро и Вкусно"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>Наше Меню</h1>
+        <p>Выберите блюдо, чтобы сделать заказ</p>
+    </header>
+
+    <main>
+        <div id="menu-grid" class="menu-grid"></div>
+    </main>
+    
+    <div id="order-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-button">&times;</button>
+            <h2>Оформление заказа</h2>
+            
+            <div id="modal-item-info">
+                </div>
+            
+            <form id="order-form">
+                <div class="quantity-selector">
+                    <label>Количество:</label>
+                    <button type="button" id="quantity-decrease">-</button>
+                    <span id="quantity-display">1</span>
+                    <button type="button" id="quantity-increase">+</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-name">Ваше имя:</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="customer-phone">Ваш телефон:</label>
+                    <input type="tel" id="customer-phone" required placeholder="+992 XXX XX XX XX">
+                </div>
+		<div class="form-group">
+                    <label for="customer-comment">Ваше комментарии:</label>
+                    <input type="text" id="customer-comment" required>
+                </div>
+
+                <button type="submit" class="submit-button">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="thank-you-message" class="thank-you hidden">
+        <p>Спасибо за заказ! Ожидайте, скоро мы с вами свяжемся.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
