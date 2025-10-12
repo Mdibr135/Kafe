@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const customerName = document.getElementById('customer-name').value;
         const customerPhone = document.getElementById('customer-phone').value;
-	const customerComment = document.getElementById('customer-comment').value;
+		const customerComment = document.getElementById('customer-comment').value;
 
         // Собираем данные для отправки на сервер
         const orderData = {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quantity: currentQuantity,
             customerName: customerName,
             customerPhone: customerPhone,
-	    customercomment: customerComment
+	    	customerComment: customerComment
         };
         
         try {
@@ -189,4 +189,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ИНИЦИАЛИЗАЦИЯ ---
     renderMenu(); // Вызываем функцию отрисовки меню при загрузке страницы
+
 });
