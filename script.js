@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // Отправляем данные на наш backend сервер
-            const response = await fetch('http://localhost:3000/api/submit-order', {
+            const response = await fetch('https://my-cafe-api-821w.onrender.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -191,3 +191,4 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMenu(); // Вызываем функцию отрисовки меню при загрузке страницы
 
 });
+
