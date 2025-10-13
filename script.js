@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ДАННЫЕ О ТОВАРАХ ---
     // В реальном проекте эти данные могут приходить с сервера
     const menuData = [
-        { id: 1, name: 'Чизбургер', price: 150, image: 'text=Чизбургер' },
-        { id: 2, name: 'Гамбургер', price: 130, image: 'text=Гамбургер' },
-        { id: 3, name: 'Картофель Фри', price: 80, image: 'text=Картофель+Фри' },
-        { id: 4, name: 'Наггетсы (6 шт)', price: 120, image: 'text=Наггетсы' },
+        { id: 1, name: 'Классический Хотдог', price: 7, image: 'image/hotdog_Классик.jpg' },
+        { id: 2, name: 'Пите', price: 20, image: 'image/Пите.jpg' },
+        { id: 3, name: 'Картофель Фри', price: 10, image: 'image/Фри.jpg' },
+        { id: 4, name: 'Классический Шаурма', price: 15, image: 'image/Шаурма_классик.jpg' },
         { id: 5, name: 'Пицца "Пепперони"', price: 450, image: 'text=Пицца' },
         { id: 6, name: 'Шаурма с курицей', price: 180, image: 'text=Шаурма' },
         { id: 7, name: 'Хот-дог', price: 100, image: 'text=Хот-дог' },
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="menu-item" data-id="${item.id}">
                     <img src="${item.image}" alt="${item.name}">
                     <h3>${item.name}</h3>
-                    <p class="price">${item.price} ₽</p>
+                    <p class="price">${item.price} Сом.</p>
                 </div>
             `;
             menuGrid.insertAdjacentHTML('beforeend', menuItemHTML);
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Заполняем информацию о товаре в модальном окне
         modalItemInfo.innerHTML = `
             <h3>${item.name}</h3>
-            <p class="price">${item.price} ₽</p>
+            <p class="price">${item.price} Сом.</p>
         `;
         
         modal.classList.remove('hidden'); // Показываем окно
@@ -177,4 +177,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ИНИЦИАЛИЗАЦИЯ ---
     renderMenu(); // Вызываем функцию отрисовки меню при загрузке страницы
 });
+
 
