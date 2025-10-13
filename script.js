@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функция для открытия модального окна с данными о товаре
     function openModal(item) {
         currentSelectedItem = item; // <-- ДОБАВЬТЕ ЭТУ СТРОКУ, чтобы запомнить товар
-	currentQuantity = 1; // Сбрасываем количество до 1
+		currentQuantity = 1; // Сбрасываем количество до 1
         updateQuantityDisplay();
         
         // Заполняем информацию о товаре в модальном окне
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             // Отправляем данные на наш backend сервер
-            const response = await fetch('https://my-cafe-api-821w.onrender.com', {
+            const response = await fetch('https://my-cafe-api-821w.onrender.com/api/submit-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -177,3 +177,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ИНИЦИАЛИЗАЦИЯ ---
     renderMenu(); // Вызываем функцию отрисовки меню при загрузке страницы
 });
+
