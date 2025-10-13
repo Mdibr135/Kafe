@@ -1,26 +1,28 @@
+    // --- Добавьте эту переменную в начало вашего скрипта, где другие переменные
+    let currentSelectedItem = null; 
 // Ждем, пока вся страница загрузится
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- ДАННЫЕ О ТОВАРАХ ---
     // В реальном проекте эти данные могут приходить с сервера
     const menuData = [
-        { id: 1, name: 'Чизбургер', price: 150, image: 'https://via.placeholder.com/300x200.png?text=Чизбургер' },
-        { id: 2, name: 'Гамбургер', price: 130, image: 'https://via.placeholder.com/300x200.png?text=Гамбургер' },
-        { id: 3, name: 'Картофель Фри', price: 80, image: 'https://via.placeholder.com/300x200.png?text=Картофель+Фри' },
-        { id: 4, name: 'Наггетсы (6 шт)', price: 120, image: 'https://via.placeholder.com/300x200.png?text=Наггетсы' },
-        { id: 5, name: 'Пицца "Пепперони"', price: 450, image: 'https://via.placeholder.com/300x200.png?text=Пицца' },
-        { id: 6, name: 'Шаурма с курицей', price: 180, image: 'https://via.placeholder.com/300x200.png?text=Шаурма' },
-        { id: 7, name: 'Хот-дог', price: 100, image: 'https://via.placeholder.com/300x200.png?text=Хот-дог' },
-        { id: 8, name: 'Кока-Кола (0.5л)', price: 70, image: 'https://via.placeholder.com/300x200.png?text=Кола' },
-        { id: 9, name: 'Салат "Цезарь"', price: 220, image: 'https://via.placeholder.com/300x200.png?text=Салат+Цезарь' },
-        { id: 10, name: 'Молочный коктейль', price: 140, image: 'https://via.placeholder.com/300x200.png?text=Коктейль' },
-        { id: 11, name: 'Двойной бургер', price: 250, image: 'https://via.placeholder.com/300x200.png?text=Двойной+бургер' },
-        { id: 12, name: 'Сырные палочки', price: 110, image: 'https://via.placeholder.com/300x200.png?text=Сырные+палочки' },
-        { id: 13, name: 'Луковые кольца', price: 90, image: 'https://via.placeholder.com/300x200.png?text=Луковые+кольца' },
-        { id: 14, name: 'Спрайт (0.5л)', price: 70, image: 'https://via.placeholder.com/300x200.png?text=Спрайт' },
-        { id: 15, name: 'Сок апельсиновый', price: 80, image: 'https://via.placeholder.com/300x200.png?text=Сок' },
-        { id: 16, name: 'Чай (черный/зеленый)', price: 50, image: 'https://via.placeholder.com/300x200.png?text=Чай' },
-        { id: 17, name: 'Кофе Американо', price: 100, image: 'https://via.placeholder.com/300x200.png?text=Кофе' }
+        { id: 1, name: 'Чизбургер', price: 150, image: 'text=Чизбургер' },
+        { id: 2, name: 'Гамбургер', price: 130, image: 'text=Гамбургер' },
+        { id: 3, name: 'Картофель Фри', price: 80, image: 'text=Картофель+Фри' },
+        { id: 4, name: 'Наггетсы (6 шт)', price: 120, image: 'text=Наггетсы' },
+        { id: 5, name: 'Пицца "Пепперони"', price: 450, image: 'text=Пицца' },
+        { id: 6, name: 'Шаурма с курицей', price: 180, image: 'text=Шаурма' },
+        { id: 7, name: 'Хот-дог', price: 100, image: 'text=Хот-дог' },
+        { id: 8, name: 'Кока-Кола (0.5л)', price: 70, image: 'text=Кола' },
+        { id: 9, name: 'Салат "Цезарь"', price: 220, image: 'text=Салат+Цезарь' },
+        { id: 10, name: 'Молочный коктейль', price: 140, image: 'text=Коктейль' },
+        { id: 11, name: 'Двойной бургер', price: 250, image: 'text=Двойной+бургер' },
+        { id: 12, name: 'Сырные палочки', price: 110, image: 'text=Сырные+палочки' },
+        { id: 13, name: 'Луковые кольца', price: 90, image: 'text=Луковые+кольца' },
+        { id: 14, name: 'Спрайт (0.5л)', price: 70, image: 'text=Спрайт' },
+        { id: 15, name: 'Сок апельсиновый', price: 80, image: 'text=Сок' },
+        { id: 16, name: 'Чай (черный/зеленый)', price: 50, image: 'text=Чай' },
+        { id: 17, name: 'Кофе Американо', price: 100, image: 'text=Кофе' }
     ];
 
     // --- ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ СО СТРАНИЦЫ ---
@@ -55,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Функция для открытия модального окна с данными о товаре
     function openModal(item) {
-        currentQuantity = 1; // Сбрасываем количество до 1
+        currentSelectedItem = item; // <-- ДОБАВЬТЕ ЭТУ СТРОКУ, чтобы запомнить товар
+	currentQuantity = 1; // Сбрасываем количество до 1
         updateQuantityDisplay();
         
         // Заполняем информацию о товаре в модальном окне
@@ -117,30 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Добавьте эту переменную в начало вашего скрипта, где другие переменные
-    let currentSelectedItem = null; 
-
-    // --- Найдите вашу функцию openModal и добавьте одну строчку
-    function openModal(item) {
-        currentSelectedItem = item; // <-- ДОБАВЬТЕ ЭТУ СТРОКУ, чтобы запомнить товар
-        currentQuantity = 1; 
-        updateQuantityDisplay();
-        
-        modalItemInfo.innerHTML = `
-            <h3>${item.name}</h3>
-            <p class="price">${item.price} ₽</p>
-        `;
-        
-        modal.classList.remove('hidden');
-    }
-
     // --- А ТЕПЕРЬ ПОЛНОСТЬЮ ЗАМЕНИТЕ ВАШ СТАРЫЙ ОБРАБОТЧИК ФОРМЫ НА ЭТОТ ---
     orderForm.addEventListener('submit', async (event) => {
         event.preventDefault(); // Предотвращаем стандартную отправку формы
 
         const customerName = document.getElementById('customer-name').value;
         const customerPhone = document.getElementById('customer-phone').value;
-		const customerComment = document.getElementById('customer-comment').value;
+    	// 1. Считываем комментарий
+    	const customerComment = document.getElementById('customer-comment').value;
 
         // Собираем данные для отправки на сервер
         const orderData = {
@@ -148,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quantity: currentQuantity,
             customerName: customerName,
             customerPhone: customerPhone,
-	    	customerComment: customerComment
+            customerComment: customerComment
         };
         
         try {
@@ -189,6 +176,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ИНИЦИАЛИЗАЦИЯ ---
     renderMenu(); // Вызываем функцию отрисовки меню при загрузке страницы
-
 });
-
